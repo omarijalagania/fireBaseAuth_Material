@@ -44,13 +44,16 @@ export default function NavBar() {
             </Typography>
 
             {currentUser ? (
-              <Button
-                onClick={() => firebaseConfig.auth().signOut()}
-                href="/"
-                color="inherit"
-              >
-                Sign Out
-              </Button>
+              <div>
+                <Typography>Welcome, {currentUser.email}</Typography>
+                <Button
+                  onClick={() => firebaseConfig.auth().signOut()}
+                  href="/"
+                  color="inherit"
+                >
+                  Sign Out
+                </Button>
+              </div>
             ) : (
               <Button href="/login" color="inherit">
                 Sign In

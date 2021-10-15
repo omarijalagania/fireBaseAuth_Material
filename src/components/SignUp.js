@@ -9,13 +9,17 @@ export function SignUp() {
   const [currentUser, setCurrentUser] = useState(null);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [password2, setPassword2] = useState("");
 
   const handleSubmit = (e) => {
     e.preventDefault();
-
     try {
-      firebaseConfig.auth().createUserWithEmailAndPassword(email, password);
-      setCurrentUser(true);
+      if (password === password2) {
+        firebaseConfig.auth().createUserWithEmailAndPassword(email, password);
+        setCurrentUser(true);
+      } else {
+        alert("Passwords dont match");
+      }
     } catch (error) {
       alert(error);
     }
@@ -57,6 +61,16 @@ export function SignUp() {
               required
               validate
               onInput={(e) => setPassword(e.target.value)}
+            />
+
+            <TextField
+              type="password"
+              id="outlined-basic"
+              label="Repeat Password"
+              variant="outlined"
+              required
+              validate
+              onInput={(e) => setPassword2(e.target.value)}
             />
 
             <Button type="submit" variant="contained">
