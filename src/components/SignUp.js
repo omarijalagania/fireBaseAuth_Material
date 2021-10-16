@@ -10,6 +10,7 @@ export function SignUp() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [password2, setPassword2] = useState("");
+  const [userNname, setUserName] = useState("");
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -43,6 +44,17 @@ export function SignUp() {
             noValidate
             autoComplete="off"
           >
+            <TextField
+              type="text"
+              id="outlined-basic"
+              label="Enter Your Name"
+              variant="outlined"
+              required
+              validate
+              value={userNname}
+              onInput={(e) => setUserName(e.target.value)}
+            />
+
             <TextField
               type="email"
               id="outlined-basic"
