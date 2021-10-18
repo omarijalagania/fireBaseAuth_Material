@@ -21,6 +21,7 @@ import Logout from "@mui/icons-material/Logout";
 
 import { AuthContext } from "./Auth";
 import firebaseConfig from "../firebase";
+
 export default function NavBar() {
   const { currentUser } = useContext(AuthContext);
 
@@ -62,7 +63,6 @@ export default function NavBar() {
                 </Link>
               )}
             </Typography>
-
             {currentUser ? (
               <div style={{ display: "flex", alignItems: "center" }}>
                 <Typography>{currentUser.email}</Typography>

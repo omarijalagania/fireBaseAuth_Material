@@ -6,7 +6,7 @@ import NavBar from "./components/NavBar";
 import SignUp from "./components/SignUp";
 import Home from "./components/Home";
 import LogIn from "./components/LogIn";
-
+import SideMenu from "./components/SideMenu";
 import { firestore } from "@firebase/firestore-compat";
 import firebase from "@firebase/app-compat";
 import Reset from "./components/Reset";
@@ -36,6 +36,7 @@ const App = () => {
   return (
     <>
       <NavBar />
+      {/* <SideMenu /> */}
       <Router>
         <Switch>
           <Route exact path="/" component={Home} />
