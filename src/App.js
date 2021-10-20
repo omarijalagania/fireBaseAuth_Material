@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useContext } from "react";
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import { HashRouter as Router, Route, Switch } from "react-router-dom";
 import PrivateRoute from "./components/PrivateRoute";
 import Dashboard from "./components/Dashboard";
 import NavBar from "./components/NavBar";
@@ -41,15 +41,14 @@ const App = () => {
         <Switch>
           <Route exact path="/" component={Home} />
           <PrivateRoute
-            exact
             path="/dashboard"
             todosData={todosData}
             component={Dashboard}
             data={todosData}
           />
-          <Route exact path="/login" component={LogIn} />
-          <Route exact path="/signup" component={SignUp} />
-          <Route exact path="/reset" component={Reset} />
+          <Route path="/login" component={LogIn} />
+          <Route path="/signup" component={SignUp} />
+          <Route path="/reset" component={Reset} />
         </Switch>
       </Router>
     </>
